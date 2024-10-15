@@ -1,12 +1,12 @@
-name: linuxserver-webtop
+name: linuxserver-webtop-xfce
 services:
   app:
-    image: linuxserver/webtop:arch-kde-version-2024-10-04
+    image: lscr.io/linuxserver/webtop:ubuntu-kde
     restart: unless-stopped
     environment:
       PUID: $PUID
       PGID: $PGID
-      TZ: $TZ
+      TZ: $Europe/Stockholm
       SUBFOLDER: ''
       TITLE: ''
     x-casaos:
@@ -17,7 +17,7 @@ services:
         - container: PGID
           description:
             en_us: for GroupID
-        - container: TZ
+        - container: Europe/Stockholm
           description:
             en_us: specify a timezone to use, see this list.
         - container: SUBFOLDER
@@ -54,7 +54,7 @@ x-casaos:
     - arm64
   main: app
   description:
-    en_us: 'Visit homepage: https://hub.docker.com/r/linuxserver/webtop/'
+    en_us: 'https://docs.linuxserver.io/images/docker-webtop/#supported-architectures'
   tagline:
     en_us: Alpine, Ubuntu, Fedora, and Arch based containers containing full desktop environments in officially supported flavors accessible via any modern web browser.
   developer: LinuxServer.io
